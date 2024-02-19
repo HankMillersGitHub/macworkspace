@@ -384,7 +384,7 @@ public class Factorial {
 
    ```java
    package pack1.pack2
-   public class Main {
+   public class StudentTest {
        public static void main(String[] args) {
            System.out.println("Hello World!");
        }
@@ -432,7 +432,7 @@ public class Factorial {
 
    ```java
    import java.util.Scanner;
-   public class Main {
+   public class StudentTest {
        public static void main(String[] args) {
            Scanner scanner = new Scanner(System.in);
        }
@@ -527,7 +527,62 @@ public class Factorial {
    }
    ```
 
-   
+
+### 6.2.2 继承性
+
+#### 1. java如何实现继承性：
+
+通过extends关键字实现类的继承，从而引出方法的重写(override)
+
+```java
+// 父类
+public class Person{
+  public void sayHello(){
+    System.out.println("say my name!");
+  }
+}
+// 子类
+public class Student entends Person{
+  public void sayHello(){
+    System.out.println("my name is Hank");
+  }
+}
+```
+
+#### 2. super关键字
+
+1. 为什么需要super？
+
+   子类继承父类以后，对父类的方法进行了重写，是否还可以对父类中被重写的方法进行调用？
+
+   ​	可以进行调用
+
+   如何调用？
+
+   ​	使用super关键字进行调用
+
+2. super的理解。`父类的。。。`
+
+3. super可以调用的结构：属性、方法、构造器
+
+##### 2.1 super调用属性、方法
+
+子类继承父类以后，就可以在子类的方法或构造器中，调用父类中声明的属性或方法。(满足封装性的前提下)，
+
+如何调用呢？需要使用`super.`的结构，表示调用父类的属性或方法
+
+一般情况下，可以考虑省略`super.`的结构，但是如果出现子类重写了父类的方法或父类子类中出现了同名的属性时，则必须使用super关键字声明，显示的调用父类被重写的方法或父类中声明的同名的属性
+
+##### 2.2 super调用构造器
+
+1. 子类继承父类时，不会继承父类的构造器，只能通过`super(参数列表)`的方式调用父类指定的构造器。
+2. 规定：`super(参数列表)`，必须å声明在构造器的首行
+3. 在构造器的首行可以使用`this(形参列表)`，调用本类中重载的构造器，结合2：在构造器的首行，`this(形参列表)`和`super(参数列表)`只能二选一
+4. 如果在子类构造器的首行既没有显示调用"this(形参列表)"，也没有显式调用"super(形参列表"，则子类此构造器默认调用"super()”，即调用父类中空参的构造器。
+5. 由3和4得到结论：子类的任何一个构造器中，要么会调用本类中重载的构造器，要么会调用父类的构造器。
+6. 由5得到：一个类中声明有n个构造器，最多有n-1个构造器中使用了"this(形参列表)"，则剩下的那个一定使用"super(形参列表)”。
+
+### 6.2.3 多态性
 
 ## 6.3 构造器
 
@@ -560,5 +615,11 @@ public class Factorial {
       * ④对象.方法赋值
       * ⑤对象.属性赋值
    1. 这些位置执行的先后顺序如何
-      1. 
 
+
+
+## 方法重载和重写的区别
+
+重载：两同一不同
+
+重写：继承以后，子类对父类同名同参数的方法的覆盖
