@@ -579,10 +579,124 @@ public class Student entends Person{
 2. 规定：`super(参数列表)`，必须å声明在构造器的首行
 3. 在构造器的首行可以使用`this(形参列表)`，调用本类中重载的构造器，结合2：在构造器的首行，`this(形参列表)`和`super(参数列表)`只能二选一
 4. 如果在子类构造器的首行既没有显示调用"this(形参列表)"，也没有显式调用"super(形参列表"，则子类此构造器默认调用"super()”，即调用父类中空参的构造器。
-5. 由3和4得到结论：子类的任何一个构造器中，要么会调用本类中重载的构造器，要么会调用父类的构造器。
-6. 由5得到：一个类中声明有n个构造器，最多有n-1个构造器中使用了"this(形参列表)"，则剩下的那个一定使用"super(形参列表)”。
+5. 由3和4得到结论：子类的任何一个构造器中，要么会调用本类中重载的构造器，要么会调用父类的空参构造器。
+   1. 由5得到：一个类中声明有n个构造器，最多有n-1个构造器中使用了"this(形参列表)"，则剩下的那个一定使用"super(形参列表)”。
+
+
+> 我们在通过子类的构造器创建对象时，一定在调用子类构造器的过程中，直接或间接的调用到父类的构造器，也正因为调用过父类的构造器，我们才会将父类中声明的属性或方法加载到内存中，供子类对象使用
+
+#### 3. 子类对象实例化的全过程
+
+```java
+class Creature{	// 生物类
+  // 声明属性、方法、构造器
+}
+class Animal{	// 动物类
+  // ...
+}
+class Dog{	// 🐶类
+  // ...
+}
+class DogTest{
+  public static void main(String[] args){
+    Dog d = new Dog();
+  }
+}
+
+```
+
+1. 从结果的角度来看，体现为类的继承性
+
+   当我们创建子类对象后，子类对象就获取了其父类中声明的所有的属性和方法，在权限允许的情况下，可以直接调用父类的构造器
+
+2. 从过程的角度来看
+
+   当我们通过子类构造器创建对象的时候，子类的构造器一定会直接或间接的调用到其父类的构造器，而其父类的构造器同样会直接或间接的调用爷类的构造器，直到调用了Object类中的构造器为止
+
+   正因为我们调用过子类所有的父类的构造器，所以我们就会将父类中声明的属性、方法加载到内存中，供子类对象使用
 
 ### 6.2.3 多态性
+
+#### 1. 多态性的体现
+
+子类对象的多态性：父类的引用指向子类的对象。(或子类的对象赋给父类的引用)
+
+#### 2. 多态性的应用
+
+多态性的应用：虚拟方法调用
+ 	在多态的场景下，调用方法时：
+		编译时，认为方法是左边声明的父类的类型的方法(被重写的方法)
+		执行时，实际执行的是子类重写父类的方法
+		简称为：编译看左边，运行看右边
+
+#### 3. 多态性的使用前提：
+
+1. 要有类的继承关系
+2. 要有方法的重写
+
+#### 4. 多态的适用性
+
+<span style="color:red;">仅适用于方法，不适用于属性。</span>
+
+#### 5. 多态的优缺点
+
+##### 5.1 优点
+
+极大地减少代码冗余，不需要定义多个重载的方法
+
+举例：
+
+```java
+/**
+ * @program: macWorkSpace
+ * @ClassName Animal
+ * @description: 多态的使用场景
+ * @author: HankMiller
+ * @create: 2024-03-03 15:34
+ * @Version 1.0
+ **/
+public class Animal {
+    public static void func(Ani ani){
+        ani.eat();
+        ani.jump();
+    }
+    public static void main(String[] args){
+        Dog dog = new Dog();
+        Animal.func(dog);
+        Animal.func(new Cat());
+    }
+}
+class Ani{
+    public void eat(){
+        System.out.println("animal eat food!");
+    }
+    public void jump(){
+        System.out.println("animal jump!");
+    }
+}
+class Dog extends Ani{
+    public void eat(){
+        System.out.println("dog eat shit!");
+    }
+    public void jump(){
+        System.out.println("dog jump!");
+    }
+}
+class Cat extends Ani{
+    public void eat(){
+        System.out.println("Cat eat fish!");
+    }
+    public void jump(){
+        System.out.println("Cat jump!");
+    }
+}
+```
+
+##### 5.2 缺点
+
+针对于创建的对象，在内存中已经加载了子类对象特有的属性和方法，但是不能直接对其进行调用。
+
+所以多态的应用场景一般多见于：父类需要进行扩展，符合开闭原则(对扩展开放，对修改关闭)
 
 ## 6.3 构造器
 
