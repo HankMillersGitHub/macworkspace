@@ -771,6 +771,19 @@ public static void main(String[] args) {
 
    1. 重点方法：
       1. equals() 
+      
+         ```java
+         /*
+         1. 适用性
+           任何引用数据类型都可以使用。
+         2. 定义
+         3. 子类使用说明
+         	> 自定义的类在没有重写Object中equals()方法的情况下
+         */
+         
+         ```
+      
+         
       2. toString
    2. 了解方法：
       1. clone()
@@ -783,6 +796,15 @@ public static void main(String[] args) {
       
          
       2. finalize()
+      
+         ```java
+         // 简单理解为垃圾回收机制
+         //类似vue中的beforeDestory
+         // 这个方法可能导致内部出现循环引用，导致此对象不能被回收
+         引出面试题：final、finaly、finalize的区别
+         ```
+      
+         
    3. 其他方法
       1. getClass()
       2. hashcode()
