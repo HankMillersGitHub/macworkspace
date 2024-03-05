@@ -698,6 +698,32 @@ class Cat extends Ani{
 
 所以多态的应用场景一般多见于：父类需要进行扩展，符合开闭原则(对扩展开放，对修改关闭)
 
+#### 6. 向下转型
+
+向下转型可能会出现：类型转换异常(ClassCastException)
+
+1. 建议在向下转型之前使用`instanceof`进行判断，避免出现ClassCastException
+
+2. 格式：`a instanceof A`:判断对象a是否是类A的实例
+
+3. 如果 a instanceof A 返回true，则：
+
+   a instance superA 返回也是true，其中A是superA的子类
+
+```java
+public static void main(String[] args) {
+        Ani ani = new Cat();
+        Dog dog;
+        if(ani instanceof Dog){
+            dog = (Dog) ani;
+        }else{
+            System.out.println("猫不是狗");
+        }
+    }
+```
+
+
+
 ## 6.3 构造器
 
 ### 6.3.1 构造器的理解
@@ -730,7 +756,39 @@ class Cat extends Ani{
       * ⑤对象.属性赋值
    1. 这些位置执行的先后顺序如何
 
+## 6.4 Obejct类的使用
 
+1. Object 类的说明
+
+   > * 任何一个java类都直接或间接的继承于Object类
+   > * Object类成为java类的根父类
+   > * Object类中声明的结构(属性、方法等)就具有通用性
+   >   * Object中没有生命属性
+   >   * Object类提供了一个空参的构造器
+   >   * <span style="color:red;">重点关注Object类中声明的方法</span>
+
+2. 常用方法：
+
+   1. 重点方法：
+      1. equals() 
+      2. toString
+   2. 了解方法：
+      1. clone()
+      
+         ```java
+         // 是一种创建对象的方式
+         Person p1 = new Person();
+         Person p2 = p1.clone();
+         ```
+      
+         
+      2. finalize()
+   3. 其他方法
+      1. getClass()
+      2. hashcode()
+      3. notify()
+      4. notifyAll()
+      5. wait()
 
 ## 方法重载和重写的区别
 
