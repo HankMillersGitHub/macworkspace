@@ -9,7 +9,10 @@
       <module fileurl="file://$PROJECT_DIR$/chapter01_oop_override/chapter01_oop_override.iml" filepath="$PROJECT_DIR$/chapter01_oop_override/chapter01_oop_override.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter02_oop02_super/chapter02_oop02_super.iml" filepath="$PROJECT_DIR$/chapter02_oop02_super/chapter02_oop02_super.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter03_oop03_polymorphism/chapter03_oop03_polymorphism.iml" filepath="$PROJECT_DIR$/chapter03_oop03_polymorphism/chapter03_oop03_polymorphism.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/chapter04_oop_other.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/chapter04_oop_other.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter03_oop03_polymorphism/02_classObject/01_equals/exer/exer.iml" filepath="$PROJECT_DIR$/chapter03_oop03_polymorphism/02_classObject/01_equals/exer/exer.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter03_oop03_polymorphism/01_PolymorphicCases/exer1/exer1.iml" filepath="$PROJECT_DIR$/chapter03_oop03_polymorphism/01_PolymorphicCases/exer1/exer1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter03_oop03_polymorphism/02_classObject/02_toString/exer_toString/exer_toString.iml" filepath="$PROJECT_DIR$/chapter03_oop03_polymorphism/02_classObject/02_toString/exer_toString/exer_toString.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/macWorkSpace.iml" filepath="$PROJECT_DIR$/.idea/macWorkSpace.iml" />
     </modules>
   </component>
