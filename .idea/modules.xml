@@ -8,12 +8,14 @@
       <module fileurl="file://$PROJECT_DIR$/chapter03_oop03_polymorphism/02_classObject/02_toString/02_toString.iml" filepath="$PROJECT_DIR$/chapter03_oop03_polymorphism/02_classObject/02_toString/02_toString.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_01_SingletonMode/_01_SingletonMode.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_01_SingletonMode/_01_SingletonMode.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_02_block/_02_block.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_02_block/_02_block.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_03_abstract/_03_abstract.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_03_abstract/_03_abstract.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter01_oop_override/chapter01_oop_override.iml" filepath="$PROJECT_DIR$/chapter01_oop_override/chapter01_oop_override.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter02_oop02_super/chapter02_oop02_super.iml" filepath="$PROJECT_DIR$/chapter02_oop02_super/chapter02_oop02_super.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter03_oop03_polymorphism/chapter03_oop03_polymorphism.iml" filepath="$PROJECT_DIR$/chapter03_oop03_polymorphism/chapter03_oop03_polymorphism.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/chapter04_oop_other.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/chapter04_oop_other.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter03_oop03_polymorphism/02_classObject/01_equals/exer/exer.iml" filepath="$PROJECT_DIR$/chapter03_oop03_polymorphism/02_classObject/01_equals/exer/exer.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter03_oop03_polymorphism/01_PolymorphicCases/exer1/exer1.iml" filepath="$PROJECT_DIR$/chapter03_oop03_polymorphism/01_PolymorphicCases/exer1/exer1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/exer_01_codeBlock/exer_01_codeBlock.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/exer_01_codeBlock/exer_01_codeBlock.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_02_block/exer_block/exer_block.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_02_block/exer_block/exer_block.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter03_oop03_polymorphism/02_classObject/02_toString/exer_toString/exer_toString.iml" filepath="$PROJECT_DIR$/chapter03_oop03_polymorphism/02_classObject/02_toString/exer_toString/exer_toString.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/macWorkSpace.iml" filepath="$PROJECT_DIR$/.idea/macWorkSpace.iml" />

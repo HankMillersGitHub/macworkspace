@@ -5,7 +5,8 @@ public class UserTest
 {
     public static void main(String[] args) {
         User u1 = new User();
-        System.out.println(u1.getInfo());     User u2 = new User();
+        System.out.println(u1.getInfo());
+        User u2 = new User();
         System.out.println(u2.getInfo());
     }
 }
@@ -25,6 +26,8 @@ class User{
     }
 
     public User(String userName, String password) {
+//        System.out.println("新用户注册");
+//        registrationTime = System.currentTimeMillis(); // 获取系统当前时间(是距离1970年1月1日零时零点零分的毫秒数)
         this.userName = userName;
         this.password = password;
     }
