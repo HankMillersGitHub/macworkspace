@@ -9,13 +9,22 @@
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_01_SingletonMode/_01_SingletonMode.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_01_SingletonMode/_01_SingletonMode.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_02_block/_02_block.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_02_block/_02_block.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_03_abstract/_03_abstract.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_03_abstract/_03_abstract.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_04_interface/_04_interface.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_04_interface/_04_interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_05_inner/_05_inner.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_05_inner/_05_inner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_06_enum/_06_enum.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_06_enum/_06_enum.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter01_oop_override/chapter01_oop_override.iml" filepath="$PROJECT_DIR$/chapter01_oop_override/chapter01_oop_override.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter02_oop02_super/chapter02_oop02_super.iml" filepath="$PROJECT_DIR$/chapter02_oop02_super/chapter02_oop02_super.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter03_oop03_polymorphism/chapter03_oop03_polymorphism.iml" filepath="$PROJECT_DIR$/chapter03_oop03_polymorphism/chapter03_oop03_polymorphism.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/chapter04_oop_other.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/chapter04_oop_other.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter03_oop03_polymorphism/02_classObject/01_equals/exer/exer.iml" filepath="$PROJECT_DIR$/chapter03_oop03_polymorphism/02_classObject/01_equals/exer/exer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_06_enum/exer01_enum/exer01_enum.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_06_enum/exer01_enum/exer01_enum.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter03_oop03_polymorphism/01_PolymorphicCases/exer1/exer1.iml" filepath="$PROJECT_DIR$/chapter03_oop03_polymorphism/01_PolymorphicCases/exer1/exer1.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/exer_01_codeBlock/exer_01_codeBlock.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/exer_01_codeBlock/exer_01_codeBlock.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_04_interface/exer_01_interface/exer_01_interface.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_04_interface/exer_01_interface/exer_01_interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_03_abstract/exer_01_template/exer_01_template.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_03_abstract/exer_01_template/exer_01_template.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/exer_02_WageSystem/exer_02_WageSystem.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/exer_02_WageSystem/exer_02_WageSystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_04_interface/exer_02_interface/exer_02_interface.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_04_interface/exer_02_interface/exer_02_interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_04_interface/exer_03_interface/exer_03_interface.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_04_interface/exer_03_interface/exer_03_interface.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_02_block/exer_block/exer_block.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_02_block/exer_block/exer_block.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter03_oop03_polymorphism/02_classObject/02_toString/exer_toString/exer_toString.iml" filepath="$PROJECT_DIR$/chapter03_oop03_polymorphism/02_classObject/02_toString/exer_toString/exer_toString.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/macWorkSpace.iml" filepath="$PROJECT_DIR$/.idea/macWorkSpace.iml" />
