@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/chapter03_oop03_polymorphism/02_classObject/01_equals/01_equals.iml" filepath="$PROJECT_DIR$/chapter03_oop03_polymorphism/02_classObject/01_equals/01_equals.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter03_oop03_polymorphism/02_classObject/02_classObject.iml" filepath="$PROJECT_DIR$/chapter03_oop03_polymorphism/02_classObject/02_classObject.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter03_oop03_polymorphism/02_classObject/02_toString/02_toString.iml" filepath="$PROJECT_DIR$/chapter03_oop03_polymorphism/02_classObject/02_toString/02_toString.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_07_annotation/UnitTesting/UnitTesting.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_07_annotation/UnitTesting/UnitTesting.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_01_SingletonMode/_01_SingletonMode.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_01_SingletonMode/_01_SingletonMode.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_02_block/_02_block.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_02_block/_02_block.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_03_abstract/_03_abstract.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_03_abstract/_03_abstract.iml" />
@@ -13,6 +14,8 @@
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_05_inner/_05_inner.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_05_inner/_05_inner.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_06_enum/_06_enum.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_06_enum/_06_enum.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_07_annotation/_07_annotation.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_07_annotation/_07_annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_08_wrapper/_08_wrapper.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_08_wrapper/_08_wrapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_09_idea/_09_idea.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_09_idea/_09_idea.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter01_oop_override/chapter01_oop_override.iml" filepath="$PROJECT_DIR$/chapter01_oop_override/chapter01_oop_override.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter02_oop02_super/chapter02_oop02_super.iml" filepath="$PROJECT_DIR$/chapter02_oop02_super/chapter02_oop02_super.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter03_oop03_polymorphism/chapter03_oop03_polymorphism.iml" filepath="$PROJECT_DIR$/chapter03_oop03_polymorphism/chapter03_oop03_polymorphism.iml" />

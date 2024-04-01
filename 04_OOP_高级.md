@@ -811,11 +811,11 @@ HashMap类中，声明了一个Node类，表示封装的key&value
 >    class Person {
 >        // 静态成员内部类
 >        static class Dog{
->    
+>          
 >        }
 >        // 非静态成员内部类
 >        class Bird{
->    
+>          
 >        }
 >    }
 >    ```
@@ -845,7 +845,7 @@ HashMap类中，声明了一个Node类，表示封装的key&value
 >        }
 >      }
 >    }
->    
+>          
 >    // 开发中的场景
 >    // 开发中使用内部类的场景
 >    class OuterClass {
@@ -884,9 +884,9 @@ HashMap类中，声明了一个Node类，表示封装的key&value
 >                }
 >            };
 >        }
->    
+>          
 >    }
->     
+>           
 >    ```
 >
 >    
@@ -897,7 +897,7 @@ HashMap类中，声明了一个Node类，表示封装的key&value
 
 
 
-# 第十章 枚举类和
+# 第十章 枚举类(enum)和注解(annotation)
 
 ## 10.1 概述
 
@@ -1007,6 +1007,184 @@ int ordinal() : 返回当前枚举常量的次序号，默认从0开始
 
 
 
+## 10.5 annotation
 
+注解从JDK5.0开始引入，以`@注解名`在代码中存在，例如
+
+```java
+@override
+@Deprecated
+@SuppressWarnings(value = "unchecked")
+```
+
+注解可以想修饰符一样被使用，可以用于修饰包、类、构造器、方法、成员变量、参数、局部变量的声明。
+
+还可以添加一些参数值，这些信息被保存在annotation的"name = value"(键值对)中
+
+注解可以在类编译运行时进行加载，体现不同的功能
+
+### 1. 注解与注释
+
+注解也可以看作是一种注释，通过使用annotation，程序员可以在不改变原有逻辑的情况下，在原文件中嵌入一些补充信息，但是，注解，不同于单行注释和多行注释
+
+* 对于单行注释和多行注释，是写给程序员看的
+* 注解是可以被编译器或其他程序读取的，程序员还可以根据不同的注解，进行对应的处理
+
+### 2. 注解的重要性
+
+在javaSE中，注解的使用目的较为简单，例如标记过时的功能，忽略警告等，在javaSE/Android中注解占据了更重要的角色，例如用来配置应用程序的切面，代替javaSE旧版中遗留的冗杂代码和XML配置
+
+未来的开发模式都是基于注解的，JPA是基于注解的，Spring2.5以上都是基于注解的，Hibernate3.x以后也是基于注解的，Struts2有一部分也是基于注解的。注解是一种趋势，一定程度上可以说：<span style="color:orange;">`框架 = 注解 + 反射 + 设计模式`</span>
+
+### 3. 常见的annotation的作用
+
+```java
+/*
+1. 文档注释
+@author 表明开发该类模块的作者，多个作者之间使用，分割
+@version 表明该类模块的版本
+@see 参考转向，也就是相关主题
+@since 从哪个版本开始增加的
+@param 对方法中某参数的说明，如果没有参数不写
+@return 对方法的返回值的说明，如果方法没有返回值不写
+@exception 对方法可能抛出的异常进行说明，如果方法没有抛出异常不写
+*/
+/*
+2. 编译时进行格式检查(JDK内置的三个基本注释)
+@Override 限定重写父类方法，该注释只能用于方法
+@Deprecated 用于表示所修饰的元素(类、方法)已过时。通常是因为所修饰的结构危险或存在更好的选择
+@SuppressWarnings 抑制编译器警告
+*/
+```
+
+### 4. 元注解
+
+<span style="color:red;">对现有的注解进行解释说明的注解</span>
+
+## 10.6 JUnit单元测试
+
+### 1. 测试分类
+
+<span style="color:red;">黑盒测试</span>：不需要写代码，给输入值，看程序是否能输出期望值
+
+<span style="color:red;">白盒测试</span>：需要写代码，关注程序具体的执行流程
+
+### 2. 单元测试
+
+JUnit是程序员测试，即白盒测试，因为程序员知道被测软件如何完成功能和完成什么样的功能
+
+要使用JUnit，必须在项目的编译路径中引入JUnit库，即相关的.class文件组成的jar包，jar就是一个压缩包，压缩包都是开发好的第三方工具类，都是以.class文件形式存在的
+
+```java
+/*
+1. 需要导入的jar包
+	junit-4.12.jar
+	hamcrest-core-1.3.jar
+2. 创建单元测试类 进行测试
+import org.junit.Test;
+
+public class JUnitTest { // 单元测试类
+
+    @Test
+    public void test1(){ // 单元测试方法
+        System.out.println("test1");
+    }
+    @Test
+    public void test2(){
+        System.out.println("this is test2");
+        test1();
+    }
+}
+3. 重点关注：要想能正确的书写单元测试方法：
+	1. 所在的类必须是public的，非抽象的，包含唯一的无参构造器
+	2. @Test标记的方法本身必须是public，非抽象的，非静态的，void无返回值, ()无参的
+4. 默认情况下，单元测试方法中使用的Scanner失效，如何解决？
+	help -> edit custom VM Options -> 添加 -Deditable.java.test.console=true -> restart idea
+	
+5. 将单元测试方法设置为一个模版
+	setting -> editor -> live templates -> add live template
+                  
+```
+
+# 第十一章 包装类
+
+## 11.1 有哪些包装类
+
+| 基本数据类型 | 包装类                                  |
+| ------------ | --------------------------------------- |
+| byte         | <span style="color:orange;">Byte</span>    |
+| short        | <span style="color:orange;">Short</span>   |
+| int          | <span style="color:orange;">Integer</span> |
+| long         | <span style="color:orange;">Long</span>    |
+| float        | <span style="color:orange;">Float</span>   |
+| double       | <span style="color:orange;">Double</span>  |
+| boolean      | Boolean        |
+| char         | Character      |
+
+其中橙色部分的父类为Number类
+
+## 11.2 自定义包装类
+
+```java
+public class MyInteger{
+    int value;
+
+    public MyInteger() {
+    }
+
+    public MyInteger(int value) {
+        this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
+}
+```
+
+## 11.3 为什么使用包装类
+
+为了使得基本数据类型的变量具备引用数据类型的相关特征(比如：封装、继承、多态)，我们给各个基本数据类型的变量都提供了对应的包装类
+
+## 11.4 基本数据类型和包装类之间的转换
+
+### 1. <span style="color:skyblue;">为什么需要转换</span>
+
+1. 在有些场景下，需要使用基本数据类型对应的包装类的对象，此时就需要将基本数据类型的变量转换为包装类的对象，比如：ArrayList的add(Object obj); Object类的equals(Object obj)
+2. 对于包装类来讲，即然我们使用的是对象，那么对象是不能加减乘除运算的，为了能进行这些运算，就需要将包装类转换为基本数据类型的对象
+
+### 2. <span style="color:skyblue;">如何转换</span>
+
+```java
+// 基本数据类型转包装类
+int a = 10;
+Integer aa = a;
+
+float b = 10.1F;
+Float bb = b;
+
+boolean c = true;
+Boolean cc = c;
+
+System.out.println(aa.equals(bb));
+
+// 包装类转基本数据类型
+Integer aaa = 10;
+int aaaa = aaa.intValue();
+// 自动拆箱
+int aaaaa = aaa;
+System.out.println(aaaa);
+
+Double d = 10.2;
+double dd = d.doubleValue();
+System.out.println(dd);
+
+// 此处的拆箱操作是 unnecessary unboxing 非必要拆箱
+```
+
+> 注意：原来使用基本数据类型变量的位置，改成包装类之后，对于成员变量来说，其默认值变化了
+>
+> JDK5.0之后 添加了自动装箱和自动拆箱操作 可以直接进行赋值
 
 <span>```</span>
