@@ -1,4 +1,4 @@
-public class Main {
+public class AnnotationMain {
     public static void main(String[] args) {
         Person p1 = new Student();
         p1.eat();

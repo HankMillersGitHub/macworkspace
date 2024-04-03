@@ -1,4 +1,4 @@
-# 第七章 OOP高级
+# 	第七章 OOP高级
 
 ## 7.1 关键字：static
 
@@ -811,24 +811,25 @@ HashMap类中，声明了一个Node类，表示封装的key&value
 >    class Person {
 >        // 静态成员内部类
 >        static class Dog{
-<<<<<<< HEAD
->          
+>    <<<<<<< HEAD
+>       
 >        }
 >        // 非静态成员内部类
 >        class Bird{
->          
-=======
->             
+>
+> =======
+>
 >        }
 >        // 非静态成员内部类
 >        class Bird{
->             
->>>>>>> 9f68438 (2023.4.1 commit)
+>
+> >>>>>> 9f68438 (2023.4.1 commit)
 >        }
 >    }
+>    
 >    ```
 >
->    
+> 
 >
 > 3. 如何在成员内部类中调用外部类的结构
 >
@@ -840,7 +841,7 @@ HashMap类中，声明了一个Node类，表示封装的key&value
 >    }
 >    ```
 >
->    
+> 
 >
 > 4. 局部内部类的基本使用
 >
@@ -853,11 +854,11 @@ HashMap类中，声明了一个Node类，表示封装的key&value
 >        }
 >      }
 >    }
-<<<<<<< HEAD
->          
-=======
->             
->>>>>>> 9f68438 (2023.4.1 commit)
+> <<<<<<< HEAD
+>
+> =======
+>
+> >>>>>> 9f68438 (2023.4.1 commit)
 >    // 开发中的场景
 >    // 开发中使用内部类的场景
 >    class OuterClass {
@@ -896,18 +897,19 @@ HashMap类中，声明了一个Node类，表示封装的key&value
 >                }
 >            };
 >        }
-<<<<<<< HEAD
->          
+> <<<<<<< HEAD
+>
 >    }
->           
-=======
->             
+>
+> =======
+>
 >    }
->              
->>>>>>> 9f68438 (2023.4.1 commit)
+>
+> >>>>>> 9f68438 (2023.4.1 commit)
+>    
 >    ```
 >
->    
+> 
 
 ## 9.6 关于成员内部类的理解
 
@@ -1026,9 +1028,6 @@ int ordinal() : 返回当前枚举常量的次序号，默认从0开始
 
 
 ## 10.5 annotation
-<<<<<<< HEAD
-=======
-
 注解从JDK5.0开始引入，以`@注解名`在代码中存在，例如
 
 ```java
@@ -1422,5 +1421,31 @@ System.out.println(dd);
 > 注意：原来使用基本数据类型变量的位置，改成包装类之后，对于成员变量来说，其默认值变化了
 >
 > JDK5.0之后 添加了自动装箱和自动拆箱操作 可以直接进行赋值
+
+## 11.5 String 类型和基本数据类型和包装类的转换
+
+```java
+// String -> 包装类、基本数据类型
+// 基本数据类型
+    String str1 = "123";
+    int a = Integer.parseInt(str1);
+// 包装类
+    String str2 = "123";
+    Integer b = Integer.parseInt(str2);
+// 包装类、基本数据类型 -> String
+// 基本数据类型
+    int i1 = 123;
+    String str3 = String.valueOf(i1);
+// 包装类
+    Integer i2 = 123;
+    String str4 = String.valueOf(i2);
+```
+
+# 第十二章 IDEA
+
+1. 抽取代码重构方法：`command + alt + m`
+2. 重写父类方法: `ctrl + o`
+3. 实现借口的方法`ctrl + i`
+4. 选中结构的大小写切换`command + shift + u`
 
 <span>```</span>

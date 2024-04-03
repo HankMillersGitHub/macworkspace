@@ -1,5 +1,5 @@
 
-public class Main {
+public class OtherMain {
     public static void main(String[] args) {
         // 自动装箱底层会调用valueOf()
         Integer i = 1;

@@ -1,4 +1,4 @@
-public class Main {
+public class _02Main {
     public static void main(String[] args) {
         Eatable[] eatables = new Eatable[]{new American(), new Chinese(), new Indian()}; // 多态性
         for (Eatable eatable : eatables) {

@@ -1,6 +1,4 @@
-import java.awt.*;
-
-public class Main {
+public class InterfaceMain {
     public static void main(String[] args) {
         Flyable a = new Plane();
     }

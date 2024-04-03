@@ -1,4 +1,4 @@
-public class Main {
+public class _01Main {
     public static void main(String[] args) {
         // 1. 创建接口实现类的对象
         Printer p = new Printer();

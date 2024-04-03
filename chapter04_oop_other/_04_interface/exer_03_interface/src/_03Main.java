@@ -1,4 +1,4 @@
-public class Main {
+public class _03Main {
     public static void main(String[] args) {
         Vehicle[] vehicles = new Vehicle[3];
         vehicles[0] = new Bicycle("捷安特","红色");
