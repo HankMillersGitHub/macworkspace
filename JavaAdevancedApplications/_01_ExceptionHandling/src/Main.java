@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        /*
         try{
             File f = new File("abc.java");
             // Unhandled exception: java.io.FileNotFoundException
@@ -22,14 +23,11 @@ public class Main {
             }
             // Unhandled exception: java.io.IOException
             fis.close();
-        }catch (FileNotFoundException e){
-//            e.printStackTrace();
-            System.out.println(e.getMessage());
-            System.out.println("there is FileNotFoundException");
         }catch (IOException e){
             System.out.println("there is IOException");
         }
         System.out.println("exception has been handle");
+        */
         /*
          运行时异常开始
         *   ​			|----- ArrayIndexOutOfBoundsException
@@ -87,9 +85,35 @@ public class Main {
                             fis.close();
         *   编译时异常 end
         * */
+        methdo3();
     }
     @Test
     public void test(){
-
+        try{
+            method1();
+        }catch(IOException e){
+            e.fillInStackTrace();
+        }
+    }
+    public static void methdo3(){
+        try{
+            method1();
+        }catch(IOException e){
+            e.fillInStackTrace();
+        }
+    }
+    public static void method1() throws IOException{
+        File f = new File("abc.java");
+        // Unhandled exception: java.io.FileNotFoundException
+        FileInputStream fis = new FileInputStream(f);
+        // Unhandled exception: java.io.IOException
+        int data = fis.read();
+        while(data != -1){
+            System.out.println((char)data);
+            // Unhandled exception: java.io.IOException
+            data = fis.read();
+        }
+        // Unhandled exception: java.io.IOException
+        fis.close();
     }
 }

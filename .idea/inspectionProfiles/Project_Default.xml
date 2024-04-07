@@ -3,7 +3,7 @@
     <option name="myName" value="Project Default" />
     <inspection_tool class="CommentedOutCode" enabled="true" level="INFORMATION" enabled_by_default="true" editorAttributes="INFORMATION_ATTRIBUTES" />
     <inspection_tool class="JavadocDeclaration" enabled="true" level="WARNING" enabled_by_default="true">
-      <option name="ADDITIONAL_TAGS" value="data,program:,ClassName,description:,create:,author:,Version" />
+      <option name="ADDITIONAL_TAGS" value="data,program:,ClassName,description:,create:,author:,Version,Return:,time:,date:" />
     </inspection_tool>
   </profile>
 </component>
