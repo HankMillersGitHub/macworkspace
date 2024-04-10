@@ -44,4 +44,9 @@ public class Programmer extends Employee{
     public String toString() {
         return super.toString() + "\t程序员\t" + status + "\t\t\t\t\t" + equipment.getDescription();
     }
+
+    public String getDetailsForTeam(){
+        // TID/ID name age salary employee gift stock
+        return getMemverId() + "/" + getId() + "\t" + getName() + "\t" + getAge() + "\t" + getSalary();
+    }
 }
