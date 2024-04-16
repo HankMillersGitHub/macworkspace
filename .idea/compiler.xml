@@ -2,7 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="17">
-      <module name="macWorkSpace" target="17" />
+      <module name="JavaWorkSpace" target="17" />
       <module name="Project_01_TeamScheduling" target="17" />
     </bytecodeTargetLevel>
   </component>

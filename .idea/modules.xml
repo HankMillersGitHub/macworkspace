@@ -7,12 +7,15 @@
       <module fileurl="file://$PROJECT_DIR$/chapter03_oop03_polymorphism/02_classObject/02_classObject.iml" filepath="$PROJECT_DIR$/chapter03_oop03_polymorphism/02_classObject/02_classObject.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter03_oop03_polymorphism/02_classObject/02_toString/02_toString.iml" filepath="$PROJECT_DIR$/chapter03_oop03_polymorphism/02_classObject/02_toString/02_toString.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaAdevancedApplications/JavaAdevancedApplications.iml" filepath="$PROJECT_DIR$/JavaAdevancedApplications/JavaAdevancedApplications.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/JavaWorkSpace.iml" filepath="$PROJECT_DIR$/.idea/JavaWorkSpace.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaAdevancedApplications/Project_01_TeamScheduling/Project_01_TeamScheduling.iml" filepath="$PROJECT_DIR$/JavaAdevancedApplications/Project_01_TeamScheduling/Project_01_TeamScheduling.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaAdevancedApplications/_01_ExceptionHandling/Throw/Throw.iml" filepath="$PROJECT_DIR$/JavaAdevancedApplications/_01_ExceptionHandling/Throw/Throw.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_07_annotation/UnitTesting/UnitTesting.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_07_annotation/UnitTesting/UnitTesting.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaAdevancedApplications/_01_ExceptionHandling/_01_ExceptionHandling.iml" filepath="$PROJECT_DIR$/JavaAdevancedApplications/_01_ExceptionHandling/_01_ExceptionHandling.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_01_SingletonMode/_01_SingletonMode.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_01_SingletonMode/_01_SingletonMode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaAdevancedApplications/_02_Multithreading/_02_Multithreading.iml" filepath="$PROJECT_DIR$/JavaAdevancedApplications/_02_Multithreading/_02_Multithreading.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_02_block/_02_block.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_02_block/_02_block.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaAdevancedApplications/_03_CommenClassesAndBasicAPIS/_03_CommenClassesAndBasicAPIS.iml" filepath="$PROJECT_DIR$/JavaAdevancedApplications/_03_CommenClassesAndBasicAPIS/_03_CommenClassesAndBasicAPIS.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_03_abstract/_03_abstract.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_03_abstract/_03_abstract.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_04_interface/_04_interface.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_04_interface/_04_interface.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_05_inner/_05_inner.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_05_inner/_05_inner.iml" />
@@ -29,16 +32,20 @@
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_06_enum/exer01_enum/exer01_enum.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_06_enum/exer01_enum/exer01_enum.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_06_enum/exer02_enum/exer02_enum.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_06_enum/exer02_enum/exer02_enum.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter03_oop03_polymorphism/01_PolymorphicCases/exer1/exer1.iml" filepath="$PROJECT_DIR$/chapter03_oop03_polymorphism/01_PolymorphicCases/exer1/exer1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaAdevancedApplications/_02_Multithreading/exer_01_ThreadSafe/exer_01_SaveMoney/exer_01_SaveMoney.iml" filepath="$PROJECT_DIR$/JavaAdevancedApplications/_02_Multithreading/exer_01_ThreadSafe/exer_01_SaveMoney/exer_01_SaveMoney.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaAdevancedApplications/_02_Multithreading/exer_01_ThreadSafe/exer_01_Thread/exer_01_Thread.iml" filepath="$PROJECT_DIR$/JavaAdevancedApplications/_02_Multithreading/exer_01_ThreadSafe/exer_01_Thread/exer_01_Thread.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaAdevancedApplications/_02_Multithreading/exer_01_ThreadSafe/exer_01_ThreadSafe.iml" filepath="$PROJECT_DIR$/JavaAdevancedApplications/_02_Multithreading/exer_01_ThreadSafe/exer_01_ThreadSafe.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/exer_01_codeBlock/exer_01_codeBlock.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/exer_01_codeBlock/exer_01_codeBlock.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_04_interface/exer_01_interface/exer_01_interface.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_04_interface/exer_01_interface/exer_01_interface.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_03_abstract/exer_01_template/exer_01_template.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_03_abstract/exer_01_template/exer_01_template.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_08_wrapper/exer_01_wrapper/exer_01_wrapper.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_08_wrapper/exer_01_wrapper/exer_01_wrapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaAdevancedApplications/_02_Multithreading/exer_02_Communication/exer_02_Communication.iml" filepath="$PROJECT_DIR$/JavaAdevancedApplications/_02_Multithreading/exer_02_Communication/exer_02_Communication.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/exer_02_WageSystem/exer_02_WageSystem.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/exer_02_WageSystem/exer_02_WageSystem.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_04_interface/exer_02_interface/exer_02_interface.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_04_interface/exer_02_interface/exer_02_interface.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_04_interface/exer_03_interface/exer_03_interface.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_04_interface/exer_03_interface/exer_03_interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaAdevancedApplications/_02_Multithreading/exer_03_summary/exer_03_summary.iml" filepath="$PROJECT_DIR$/JavaAdevancedApplications/_02_Multithreading/exer_03_summary/exer_03_summary.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter04_oop_other/_02_block/exer_block/exer_block.iml" filepath="$PROJECT_DIR$/chapter04_oop_other/_02_block/exer_block/exer_block.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter03_oop03_polymorphism/02_classObject/02_toString/exer_toString/exer_toString.iml" filepath="$PROJECT_DIR$/chapter03_oop03_polymorphism/02_classObject/02_toString/exer_toString/exer_toString.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/macWorkSpace.iml" filepath="$PROJECT_DIR$/.idea/macWorkSpace.iml" />
     </modules>
   </component>
 </project>
