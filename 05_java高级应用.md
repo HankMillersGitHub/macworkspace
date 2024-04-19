@@ -1003,7 +1003,287 @@ String str1 = new String("hello");
 String str2 = "hello";
 ```
 
+### 5. String的连接操作
 
+情况一：常量 + 变量，结果仍然存储在字符传常量池中，此时的常量可能是字面量，也可能是final常量
+
+情况二：常量 + 变量 或 变量 + 变量，结果都会通过new的方式创建新的字符串，返回堆空间中此字符串对象的地址
+
+情况三：调用字符串的intern()，返回的是字符串常量池中字面量的地址
+
+情况四：concat()：不管是常量还是变量调用此方法，同样不管参数是常量还是变量，调用此方法都会返回new的对象
+
+### 6. String的构造器和常用方法
+
+#### 6.1 构造器
+
+```java
+public String() ：初始化新创建的String对象，以使其表示空字符序列
+public String(String original) ：初始化一个新创建的String对象，使其表示一个与参数相同的字符序列
+public String(char value[])：通过当前参数中的字符数组来构造新的String
+public String(char value[], int offset, int count)：通过字符数组的一部分来创建新的String
+public String(byte bytes[])：使用平台的默认字符集解码当前参数中的字节数组来构建新的String
+public String(byte bytes[], String charsetName)：通过使用指定字符集解码当前参数中的字节数组构建新的String
+```
+
+#### 6.2 常用方法
+
+```java
+常用方法 
+// 1. boolean isEmpty() 判断字符串是否为空
+System.out.println(str1.isEmpty());
+// 2. int length() 返回字符串的长度
+System.out.println(str2.length());
+// 3. String concat(x) 拼接两个字符串，并返回新的字符串
+str1 = str1.concat(str2);
+// 4. boolean equals(Object obj) 比较字符串是否相等，区分大小写
+System.out.println(str1.equals(str2));
+// 5. boolean equalsIgnoreCase(Object obj) 比较字符串是否相等，不区分大小写
+System.out.println(str1.equalsIgnoreCase(str2));
+// 6. int compareTo(String other) 比较字符串大小，区分大小写，按照unicode编码值比较大小
+System.out.println(str1.compareTo(str2));
+// 7. int compareToIgnoreCase(String other) 比较字符串大小，不区分大小写
+System.out.println(str1.compareToIgnoreCase(str2));
+// 8. String toLowerCase() 将字符串中大写字母转为小写
+System.out.println(str2.toLowerCase());
+// 9. String toUpperCase() 将字符串中小写字母转为大写
+System.out.println(str1.toUpperCase());
+// 10. String trim() 去掉字符串前后空符
+System.out.println(str2.trim());
+// 11. public String intern() 结果在常量池中共享
+str1.intern();
+
+搜索方法
+// 1. boolean contains(x) 是否包含x
+System.out.println(str2.contains("he"));
+// 2. int indexOf(xx) 从前往后查找当前字符串中的xx，如果有就返回第一次出现的下标，没有就返回-1
+System.out.println(str2.indexOf("a"));
+// 3. int indexOf(String str,int fromIndex) 返回指定字符串在此字符串中第一次出现的下标，从指定索引开始
+System.out.println(str2.indexOf("he",1));
+// 4. int lastIndexOf(xx) 从后往前查找当前字符串中的xx，如果有就返回最后一次出现的下标，没有就返回-1
+System.out.println(str2.lastIndexOf("Wo"));
+// 5. int lastIndexOf(String str,int fromIndex) 返回指定字符串在此字符串最后一次出现处的索引，从指定的索引开始从后往前搜索
+System.out.println(str2.lastIndexOf("wo",2));
+
+截取方法
+// 1. String subString(int beginIndex) 返回一个新的字符串，他是当前字符串从beginIndex开始截取到字符串最后
+System.out.println(str2.substring(2));
+// 2. String subString(int beginIndex,int endIndex) 返回一个新的字符串，他是当前字符串从beginIndex截取到endIndex
+System.out.println(str2.substring(2,4));
+
+开头和结尾
+// 1. char charAt(index) 返回index位置的字符
+System.out.println(str2.charAt(2));
+// 2. char[] toCharArray()  将此字符串作为一个新的字符数组返回
+char[] a = str1.toCharArray();
+// 3. static String valueOf(char[] data) 返回指定数组中表示该字符序列的String
+System.out.println(String.valueOf(new char[]{'a','b','c','d','e'}));
+// 4. static String valueOf(char[] data,int offset,int count) 返回指定数组中表示该字符序列的String，从offset开始，留count位
+System.out.println(String.valueOf(new char[]{'a','b','c','d','e'},2,2));
+// 5. static String copyValueOf(char[] data) 返回指定数组中表示该字符序列的String
+System.out.println(String.copyValueOf(new char[]{'a','b','c','d','e'}));
+// 6. static String copyValueOf(char[] data,int offset,int count) 返回指定数组中表示该字符序列的String，从offset开始，留count位
+System.out.println(String.valueOf(new char[]{'a','b','c','d','e'},2,2));
+// 7. boolean startsWith(xx) 测试字符串是否以指定的前缀开始
+System.out.println(str2.startsWith("he"));
+// 8. boolean startsWith(String prefix,int offset) 测试此字符串从指定索引开始的子字符串是否以prefix为前缀开始
+System.out.println(str2.startsWith("he", 3));
+// 9. boolean endsWith(xx) 测试此字符串是否以指定后缀结束
+System.out.println(str2.endsWith("he"));
+
+替换
+// 1. String repalce(char oldChar,char newChar) 返回一个新的字符串，他是通过newChar替换的
+System.out.println(str2.replace('l','o'));
+// 2. String repalce(CharSequence target,CharSequence repalcement) 使用指定的字面值替换序列替换此字符串所有匹配字面值目标序列的子字符串
+System.out.println(str2.replace("hello", str1));
+// 3. String repalceAll(String regex,String replacement) 使用给定的replacement替换所有匹配给定的正则表达式的子字符串
+System.out.println(str2.replaceAll("[^a-zA-Z]", str1));
+// 4. String replaceFirst(String regex,String replacement) 使用给定的replacement替换第一个匹配给定的正则表达式的子字符串
+System.out.println(str2.replaceFirst("[^a-zA-Z]", str1));
+```
+
+##### 练习：手写reverse
+
+```java
+// 手写reverse
+public static String reverse(String str,int beginIndex,int endIndex){
+    char[] chars = str.toCharArray();
+    char[] chars1 = new char[chars.length];
+    for (int i = 0; i < chars.length; i++) {
+        if(i >= beginIndex && i < endIndex){
+            chars1[i] = chars[chars.length - 1 - i];
+        }else{
+            chars1[i] = chars[i];
+        }
+    }
+    return String.copyValueOf(chars1);
+}
+// 手写trim
+public static String myTrim(String str){
+    if (str == null) {
+        return null;
+    }
+    int start = 0;
+    int end = str.length() - 1;
+    // 移除开头的空白字符
+    while (start <= end && Character.isWhitespace(str.charAt(start))) {
+        start++;
+    }
+    // 移除结尾的空白字符
+    while (end >= start && Character.isWhitespace(str.charAt(end))) {
+        end--;
+    }
+    // 如果整个字符串都是空白字符，则返回空字符串
+    if (start > end) {
+        return "";
+    }
+    // 截取非空白字符部分
+    return str.substring(start, end + 1);
+}
+```
+
+
+
+## 3.2 StringMore
+
+### 1. 三个类的对比：String、StringBuffer、StringBuilder
+
+String:不可变字符序列，底层使用char型数组(JDK8及之前)，底层使用byte数组(JDK9及以后)
+
+StringBuffer:可变字符序列 JDK1.0声明，线程安全的，效率低，底层使用char型数组(JDK8及之前)，底层使用byte数组(JDK9及以后)
+
+StringBuilder:可变字符序列 JDK5.0声明，线程不安全，效率高，底层使用char型数组(JDK8及之前)，底层使用byte数组(JDK9及以后)
+
+### 2. 源码启示
+
+如果开发中需要频繁的针对于字符串进行增删改等操作，建议使用StringBuffer和StringBuilder替换String，使用String效率较低
+
+如果开发中不涉及到线程安全问题，建议选择StringBuilder来替换StringBuffer
+
+如果开发中大概确定要操作的字符的个数，建议使用`StringBuffer(int capacity)`构造器，避免多次扩容效率较低
+
+### 3. StringBuffer和StringBuilder的常用方法
+
+```java
+修改原字符串
+// 1. StringBuffer append(x) 使用追加的方式进行添加字符串
+System.out.println(str.append("abc")); // abcabc
+// 2. StringBuffer delete(int start,int end) 删除[start,end)之间的字符串
+System.out.println(str.delete(1, 3)); // aabc
+// 3. StringBuffer deleteCharAt(int index) 删除index位置的字符
+System.out.println(str.deleteCharAt(2)); // aac
+// 4. StringBuffer replace(int start,int end,String str) 替换[start,end)范围内的字符序列为str
+System.out.println(str.replace(1, 2, "abcdefg")); // aabcdefgc
+// 5. void setCharAt(int index,char c) 替换index位置的字符
+str.setCharAt(0,'u'); // uabcdefgc
+// 6. char charAt(int index) 查找指定index位置的字符
+System.out.println(str.charAt(0)); // u
+// 7. StringBuffer insert(int index,xx) 在index位置插入xx
+System.out.println(str.insert(0, "HankMiller")); // HankMilleruabcdefgc
+// 8. int lenght() 返回当前字符串的长度
+System.out.println(str.length()); // 19
+// 9. StringBuffer reverse() 反转字符串
+System.out.println(str.reverse()); // cgfedcbaurelliMknaH
+
+不修改原字符串
+// 1. int indexOf(String str) 在当前字符序列中查询str第一次出现的标
+System.out.println(str.indexOf("a")); // 0
+// 2. int indexOf(String str,int fromIndex) 在当前字符序列[fromIndex,最后]中查寻str第一次出现的下标
+System.out.println(str.indexOf("b",1)); // 0
+// 3. int lastIndexOf(String str) 在当前字符串中查找str最后一次出现的下标
+System.out.println(str.lastIndexOf("c")); // 2
+// 4. int lastIndexOf(String str,int fromIndex) 在当前字符序列[fromIndex,最后]中查询str最后一次出现的位置
+System.out.println(str.lastIndexOf("c",1)); // 2
+// 5. String substring(int start) 截取当前字符序列的[start,最后]的字符序列
+System.out.println(str.substring(1)); // bc
+// 6. String subtring(int start,int end) 截取当前字符序列[start,end]
+System.out.println(str.substring(0, 1)); // ab
+// 7. String toString() 返回此字符串中数据的字符串表现形式
+System.out.println(str.toString());// abc
+// 8. void setLength(int newLength) 设置当前字符序列长度为newLength
+str.setLength(10);
+System.out.println(str.length()); // 10
+```
+
+## 3.2 Date日期
+
+```java
+System.currentTimeMillis(); // 获取当前时间戳，常用来计算时间差
+/*
+* Date类
+*   java.util.Date
+*       两个构造器 -> 空参(创建一个基于当前系统时间的Date的实例) 和 时间戳为参数(创建一个基于指定时间戳的Date对象)
+*       两个方法 -> getTimes() 获取当前对应时间的毫秒数 toString() 获取完整格式的时间
+*   java.sql.Date extends java.util.Date  对应着数据库中的Date类型
+*       java.sql.Data(时间戳)
+*
+*
+* */
+Date d = new Date(); // 创建一个基于当前系统时间的Date的实例
+long milliTimes = d.getTime();
+System.out.println(milliTimes); // d对应的毫秒数
+Date e = new Date(milliTimes); // 创建一个基于指定时间戳的Date对象
+
+java.sql.Date d1 = new java.sql.Date(milliTimes);
+System.out.println(d1.getTime());
+
+/*
+* SimpleDateFormat类，用于日期时间的格式化和解析
+*
+* */
+// 格式化 ： 日期 ---> 字符串
+Date date = new Date();
+SimpleDateFormat sdf = new SimpleDateFormat();
+System.out.println(sdf.format(date));
+// 解析： 字符串 ---> 日期
+try {
+    Date date1 =sdf.parse("22-04-15 下午3:21");
+    System.out.println(date1);
+} catch (ParseException e) {
+    throw new RuntimeException(e);
+}
+
+// 格式化：日期 ---> 字符串
+SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy MM dd HH:mm:ss Z");
+Date date2 = new Date();
+String stringDate = sdf1.format(date2);
+System.out.println(stringDate);
+// 解析：字符串 ---> 日期 当前sdf接受的格式是yyyy MM dd HH:mm:ss Z
+try {
+    Date date3 = sdf1.parse("12 09 29 18:12:12 +0800");
+    System.out.println(date3);
+} catch (ParseException e) {
+    throw new RuntimeException(e);
+}
+
+// Calendar 日历
+/*
+* Calendar 抽象类
+* 1. 实例化 由于Calendar是一个抽象类 所以需要创建其子类的实例，这里我们通过Calendar
+*    的静态方法
+* 2. 常用方法：
+*   get(int field) / set(intfield,xx) / add(int field,xx) / getTime() / setTime()
+* */
+Calendar calendar = Calendar.getInstance();
+Calendar calendar1 = new GregorianCalendar();
+Calendar calendar2 = new BuddhistCalendar();
+// get(int field)
+System.out.println(calendar.get(Calendar.DAY_OF_MONTH));
+System.out.println(calendar1.get(Calendar.DAY_OF_WEEK));
+System.out.println(calendar2.get(Calendar.DATE));
+// set(int field ,xx) 将field的数据改为xx
+calendar1.set(Calendar.DAY_OF_MONTH,12);
+System.out.println(calendar1.get(Calendar.DAY_OF_MONTH));
+// add(int field,xx) 在field的基础上加xx
+calendar2.set(Calendar.DAY_OF_MONTH,20);
+System.out.println(calendar2.get(Calendar.DAY_OF_MONTH));
+// getTime()
+Date date = calendar1.getTime();
+System.out.println(date);
+// setTime(Date date) 使用指定的date重置calendar
+calendar2.setTime(date);
+System.out.println(calendar2.get(Calendar.DAY_OF_MONTH));
+```
 
 
 
