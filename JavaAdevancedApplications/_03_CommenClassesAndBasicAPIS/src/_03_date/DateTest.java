@@ -1,31 +1,35 @@
 package _03_date;
 
 import sun.util.BuddhistCalendar;
+import sun.util.resources.LocaleData;
 
 import java.awt.dnd.DropTarget;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.TemporalAccessor;
 import java.util.*;
 
 public class DateTest {
     public static void main(String[] args) {
-    // 练习1：将java.util.Date转化为java.sql.Date
-    /*    java.util.Date date = new java.util.Date();
-        System.out.println(date.getTime());
-        Date target = new Date(date.getTime());
-        System.out.println(target);*/
-    // 练习2: 将控制台获取的年月日2024-10-12的字符串数字保存在数据库中，
-        /*Scanner scanner = new Scanner(System.in);
-        System.out.print("请输入时间：");
-        String getTime = scanner.next();
-        // 创建SimpleDateFormat的实例用于之后格式化字符串为日期 接受的日期格式为yyyy-MM-dd
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        try {
-            Date d = simpleDateFormat.parse(getTime);   // 将格式化后的日期
-            java.util.Date date = new java.util.Date(d.getTime());
-            System.out.println(date);
-        } catch (ParseException e) {
-            System.out.println(e.getMessage());
-        }*/
+        /*
+        * 使用Calendar获取当前时间，把这个时间设置为你自己的生日，并计算你的百日宴日期
+        * */
+        Calendar now = Calendar.getInstance();
+        Date birthday = now.getTime();
+        now.add(Calendar.DAY_OF_YEAR,100);
+        Date b100 = now.getTime();
+        System.out.println(b100 + "-----" + birthday);
+
+        /*
+        * 使用LocalDateTime获取当前时间，把这个时间设置为你的生日，并计算你的百日宴日期
+        * */
+        LocalDateTime birthday1 = LocalDateTime.now();
+        LocalDateTime b1001 = LocalDateTime.now();
+        System.out.println(birthday1);
+        b1001 = birthday1.plusDays(100);
+        System.out.println(b1001);
     }
 }

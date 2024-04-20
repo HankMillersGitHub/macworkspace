@@ -1207,6 +1207,8 @@ System.out.println(str.length()); // 10
 
 ## 3.2 Date日期
 
+### 1. JDK8之前的日期API
+
 ```java
 System.currentTimeMillis(); // 获取当前时间戳，常用来计算时间差
 /*
@@ -1285,63 +1287,242 @@ calendar2.setTime(date);
 System.out.println(calendar2.get(Calendar.DAY_OF_MONTH));
 ```
 
+### 2. JDK8之后的日期API
+
+#### 2.1 LocalDate LocalTime LocalDateTime 
+
+类似于Calendar类 有两种实例化的方法，now() of()
+
+```java
+// LocalDate
+// LocalTime
+// LocalDateTime
+
+// now() 静态方法，根据当前时间创建对象或指定时区的对象
+LocalDate d1 = LocalDate.now();
+LocalTime d2 = LocalTime.now();
+LocalDateTime d3 = LocalDateTime.now();
+// of(xx,xx,xx,xx,xxx) 静态方法，根据指定日期或时间创建对象
+LocalDate d4 = LocalDate.of(2024,12,12);
+LocalTime d5 = LocalTime.of(12,12,12);
+LocalDateTime d6 = LocalDateTime.of(2012,12,12,0,0,0);
+// getXxx()
+System.out.println(d1.getDayOfMonth()); // 19
+System.out.println(d1.getDayOfWeek());  // Friday
+System.out.println(d1.getDayOfYear());  // 110
+System.out.println(d1.getMonth());  // APRIL
+System.out.println(d1.getYear());   // 2024
+// withXxx() 体现不可变性
+System.out.println(d1.withYear(2021));
+System.out.println(d1.withMonth(12));
+System.out.println(d1.withDayOfMonth(14));
+System.out.println(d1.withDayOfYear(120));
+// plusXxx()
+System.out.println(d1.plusDays(12));
+System.out.println(d1.plusMonths(12));
+System.out.println(d1.plusYears(12));
+System.out.println(d1.plusWeeks(1));
+// minXx()
+System.out.println(d1.minusDays(10));
+System.out.println(d1.minusYears(10));
+System.out.println(d1.minusMonths(10));
+System.out.println(d1.minusWeeks(10));
+```
+
+#### 2.2 Instant 
+
+时间线上的一个瞬时点，可以被用来记录程序中事件的时间戳
+
+| 方法                          | 描述                                                         |
+| ----------------------------- | ------------------------------------------------------------ |
+| now()                         | 静态方法，返回一个Instant类的对象                            |
+| ofEpochMilli(long epochMilli) | 静态方法，返回在1970-01-01 0.0.0的基础上加上指定毫秒数的Instant实例 |
+| atOffset(ZoneOffset offset)   | 结合即时的偏移来创建一个OffsetDateTime                       |
+| toEpochMilli()                | 返回1970-01-01 0.0.0 到当前时间的毫秒数，即时间戳            |
+
+```java
+Instant i1 = Instant.now();
+System.out.println(i1.toEpochMilli());
+Date d = new Date();
+System.out.println(Instant.ofEpochMilli(d.getTime())); // 得到结果的时间是格林威治时间
+i1.atOffset(ZoneOffset.ofHours(8)); // 调整回东八区时间
+```
 
 
-<span>```````````````````````````````````</span>
+
+#### 2.3 DateTimeFormatter 
+
+用来格式化LocalDate LocalTime LocalDateTime 格式hide时间
+
+提供三种格式化方法：
+
+* (了解)预定义的标准格式：ISO_LOCAL_DATE_TIME、ISO_LOCAL_DATE、ISO_LOCAL_TIME
+
+* (了解)本地化相关的格式：ofLocallizedDate(FormatStyle.LONG)
+
+  ```java
+  // 本地化相关的格式：ofLocallizedDateTime()
+  // FormatStyle.MEDIUM / FormatStyle.SHORT 适用于LocalDateTime
+  
+  // 本地化相关的格式：ofLocalizedDate()
+  // FormatStyle.FULL / FormatStyle.LONG / FormatStyle.MEDIUM / FormatStyle.SHORT 适用于LocalDate
+  ```
+
+* 自定义格式：ofPattern("yyyy-MM-dd hh:mm:ss")
+
+| 方法                       | 描述                                                    |
+| -------------------------- | ------------------------------------------------------- |
+| ofPattern(String pattern)  | 静态方法，用于返回一个指定字符串格式的DateTimeFormatter |
+| format(TemporalAccessor t) | 格式化一个日期、时间。返回字符串                        |
+| parse(CharSequence text)   | 将指定格式的字符串序列解析为一个日期、时间              |
+
+```java
+// 自定义格式
+DateTimeFormatter d =  DateTimeFormatter.ofPattern("yyyy-MM-dd");
+// 格式化： 日期、时间 --> 字符串
+LocalDate date = LocalDate.now();
+d.format(date);
+System.out.println(date);
+
+// 格式化： 字符串 --> 日期、时间
+TemporalAccessor newDate = d.parse("2023-09-20");
+// 将TemporalAccessor的时间转换为LocalDate类型的时间
+LocalDate from = LocalDate.from(newDate);
+System.out.println(from);
+```
+
+### 3. 与传统日期处理的转换
+
+| 类                                                         | To 遗留类                            | From 遗留类                 |
+| ---------------------------------------------------------- | ------------------------------------ | --------------------------- |
+| java.time.Instant & java.util.Date                         | Date.from(instant)                   | date.toInstant()            |
+| java.time.Instant & java.sql.Timestamp                     | Timestamp.from(instant)              | timestamp.toInstant()       |
+| java.time.ZonedDateTime & java.util.GregorianCalendar      | GregorianCalendar.from(zoneDateTime) | cal.toZonedDateTime()       |
+| java.time.LocalDate & java.sql.Time                        | Date.valueOf(localDate)              | date.toLocalDate()          |
+| java.time.LocalTime & java.sql.Time                        | Date.valueOf(localDate)              | date.toLocalTime()          |
+| java.time.LocalDateTime & java.sql.Timestamp               | Timestamp.valueOf(localDateTime)     | timestamp.toLocalDateTime() |
+| java.time.Zone & java.util.TimeZone                        | Timezone.getTimeZone(id)             | timeZone.toZoneId()         |
+| java.time.format.DtaeTimeFormatter & java.text.Date.Format | formatter.toFormat()                 | null                        |
+
+## 3.3 Compare
+
+实现对象的排序可以考虑两种方法：自然排序和定制排序
+
+### 1. 方式一：
+
+实现Comparable接口的方式
+
+实现步骤：
+
+1. 具体的类实现Comparable接口
+2. 重写Comparable中的compareTo方法，在此方法中指明比较两个对象大小的标准
+3. 使用此方法可以进行排序
+
+```java
+public class ComparableTest {
+    public static void main(String[] args) {
+        String[] strs = new String[]{"Hank","Jack","Lili","Lucy"};
+        Product p1 = new Product("炼狱狂蛇",799);
+        Product p2 = new Product("北海巨妖",399);
+        Product p3 = new Product("黑曼巴",299);
+        Product p4 = new Product("proclick",1299);
+        Product[] products = new Product[]{p1,p2,p3,p4};
+        Arrays.sort(products);
+        for (Product product : products) {
+            System.out.println(product);
+        }
+    }
+}
+// 商品类
+class Product implements Comparable{
+    private String name;
+    private int price;
+    public Product() {
+    }
+    @Override
+    public String toString() {
+        return "Product{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                '}';
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public int getPrice() {
+        return price;
+    }
+    public void setPrice(int price) {
+        this.price = price;
+    }
+    public Product(String name, int price) {
+        this.name = name;
+        this.price = price;
+    }
+    /*
+    * 当前类需要实现Comparable中的抽象方法
+    * 在此方法中指明如何判断当前累的对象的大小
+    * */
+    @Override
+    public int compareTo(Object o) {
+        if(o == this){
+            return 0;
+        }
+        if(o instanceof Product){
+            Product p = (Product)o;
+            return Integer.compare(this.price,p.price);
+        }
+        throw new RuntimeException("数据不匹配");
+    }
+}
+```
+
+### 2. 方式二：
+
+实现Comparator的方式
+
+```java
+public class ComparatorTest {
+    public static void main(String[] args) {
+        Product[] products = new Product[4];
+        products[0] = new Product("iphone15ProMax",9999);
+        products[1] = new Product("HuaWeiMate60Pro",8999);
+        products[2] = new Product("XiaoMi21Pro",6999);
+        products[3] = new Product("Samsung",7999);
+        // 创建一个实现了Comparator接口的实现类的对象
+        Comparator comparator = new Comparator() {
+            // 如何判断两个对象的大小，其标准就是此方法的方法体要编辑的逻辑
+            public int compare(Object o1, Object o2) {
+                if(o1 instanceof Product && o2 instanceof Product){
+                    Product c1 = (Product) o1;
+                    Product c2 = (Product) o2;
+                    return Integer.compare(c1.getPrice(),c2.getPrice());
+                }
+                throw new RuntimeException("类型不匹配");
+            }
+        };
+        Arrays.sort(products,comparator);
+        for (Product product : products){
+            System.out.println(product);
+        }
+    }
+}
+```
+
+
+
+
+
+
 
 ```html
 <span style="color:orange"></span>
 <span style="color:red"></span>
 <span style="color:green"></span>
 ```
-
-### 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# 第二章 JDK17新特性
-
-## 2.1 如何学习新特性
-
-> 角度1:新的语法规则
->
-> ​	自动装箱、自动拆箱、注解、enum、Lambda表达式、方法引用、switch表达式、try-catch变化、record等
-
-> 角度2:增加、过时、删除API
->
-> ​	StringBuilder 、 ArrayList 、 新的日期时间的API、Optional等
-
-> 角度3:底层优化、JVM参数的调整、GC的变化、内存结构(永久代 --> 元空间)
-
-## 2.2 Lambda表达式
-
-### 1. 格式
-
-```java
--> : 拉姆达操作符或箭头操作符
--> 的左边：拉姆达型参列表，对应着要重写的借口中的抽象方法的型参
-  
-```
-
-
-
-
 
 
 
