@@ -1484,6 +1484,12 @@ class Product implements Comparable{
 
 实现Comparator的方式
 
+步骤：
+
+* 创建一个实现了Comparator接口的实现类A
+* 实现类A要求重写Comparator接口中的抽象方法compare(Object o1,Object o2),在此方法中指明要比较大小的对象的大小关系
+* 创建此实现类A的对象，并将此对象传入到相关方法的参数位置即可
+
 ```java
 public class ComparatorTest {
     public static void main(String[] args) {
@@ -1512,15 +1518,438 @@ public class ComparatorTest {
 }
 ```
 
+### 3. 对比
+
+角度一：
+
+自然排序：单一的唯一的
+
+定制排序：灵活的多样的
+
+角度二：
+
+自然排序：一劳永逸的
+
+定制排序：临时的
+
+角度三：
+
+自然排序：Comparable 重写compareTo
+
+定制排序：Comparator 对应的抽象方法是compare(Object o1 , Object o2);
+
+## 3.4 Other
+
+### 1. System
+
+* 成员变量：`Scanner scanner = new Scanner(System.in);`
+
+  * System类包括三个成员变量：in，out，err，分别代表标准输入流，标准输出流，标准错误输出流
+
+* 成员方法：
+
+  * <span style="color:orange">`native long currentTimeMillis()`</span>
+
+    该方法的作用是返回当前计算机的时间，时间的表达格式是当前计算机的时间和格林威治时间所差的毫秒数
+
+  * <span style="color:orange">`void exit(int status)`</span>
+
+    该方法的作用是退出程序，其中status的值为0代表正常退出，非零代表异常退出，在图形化界面编程中实现程序的退出功能
+
+  * <span style="color:orange">`void gc()`</span>
+
+    该方法的作用是请求系统进行垃圾回收，至于系统是否立即回收，则取决于系统中垃圾回收算法的实现以及系统执行时的情况
+
+  * <span style="color:orange">`String getProperty(String key)`</span>
+
+    该方法的作用是获得系统中属姓名为key的属性对应的值，系统中常见的属性名和属性的作用如下表
+
+    | 属性名       | 属性说明           |
+    | ------------ | ------------------ |
+    | java.version | Java运行时环境版本 |
+    | java.home    | java安装目录       |
+    | os.name      | 操作系统的名称     |
+    | os.version   | 操作系统的版本     |
+    | user.name    | 用户的账户名称     |
+    | user.home    | 用户的主目录       |
+    | user.dir     | 用户的当前工作目录 |
+
+  * <span style="color:orange">`static void arraycopy(Object src,int srcPos,Object dest,int destPos,int length)`</span>
+
+    从指定源数组中复制一个数组，复制从指定的位置开始，到目标数组的指定位置结束，常用于数组的插入和删除
+
+### 2. Runtime
+
+每个java程序都有一个Runtime类实例，使应用程序能够与其运行的环境相连接
+
+* <span style="color:orange">`public static Runtime getRuntime()`</span>：返回与当前java程序相关的运行时对象，应用程序不能创建自己的Runtime类实例
+* <span style="color:orange">`public long totalMemory()`</span>：返回java虚拟机中初始化时的内存总量，此方法返回的值可能随时间的推移而变化，这取决于主机环境，默认为物理电脑内存的1/64
+* <span style="color:orange">`public long maxMemory()`</span>：返回java虚拟机中最大程度能使用的内存总量，默认为物理电脑内存的1/4
+* <span style="color:orange">public long freeMemory()</span>：返回java虚拟机中的空闲内存量，调用gc方法可能导致freeMemory返回值的增加
+
+### 3. Math类
+
+包含基本的数学运算的方法，如初等指数、对数、平方根和三角函数，类似这样的工具类，所有的方法均为静态方法，并且不会创建对象，调用起来非常简单
+
+* `public static double abs(double a)`：返回double值的绝对值
+* `public static double ceil(double a)`：返回大于等于参数的最小整数
+* `public static double floor(double a)`：返回小于等于参数的最大整数
+* `public static long round(double a)`： 返回最接近参数的long(相当于四舍五入) 技巧，将参数+0.5 然后向下取整
+* `public static double pow(double a,double b)`：返回a的b次方
+* `public static double sqrt(double a)`： 返回a的平方根
+* `public static double random()`： 返回(0,1)之间的随机数
+* `public static final double PI`： 返回圆周率
+* `public static double max(double x,double y)`： 返回x，y的最大值
+* `public static double min(double x,double y)`： 返回x，y的最小值
+* `acos,asin,atan,cos,sin,tan`：三角函数
+
+### 4. BigInteger
+
+构造器：`BigInteger(String value)`：根据字符串创建BigInteger对象
+
+方法：
+
+* `public BigInteger abs()`返回此BigInteger的绝对值的BigInteger
+* `BigInteger add(BigInteger value)`返回值为(this + value)的BigInteger
+* `BigInteger subStract(BigInteger value)`返回值为(this - value)的BigInteger
+* `BigInteger multiply(BigInteger value)`返回值为(this * value)的BigInteger
+* `BigInteger divide(BigInteger value)`返回值为(this / value)的BigInteger
+* `BigInteger remainder(BigInteger value)`返回值为(this % value)的BigInteger
+* `BigInteger[] divideAndRemainder(BigInteger value)`返回此(this / value) 和 (this % value)的两个BigInteger的数组
+* `BigInteger pow(int exponent)`返回值为(this ^ exponent)的BigInteger
+
+### 5. BigDecimal
+
+构造器：
+
+public BigDecimal(double value)
+
+public BigDecimal(String vlaue) ---> 推荐
+
+常用方法：
+
+* `public BigDecimal add(BigDecimal augend)`
+* `public BigDecimal subStract(BigDecimal subtrahend)`
+* `public BigDecimal multiply(BigDecimal multiplicand)`
+* `public BigDecimal divide(BigDecimal divisor,int scale,int roundingMode)`：divisor是除数，scale指明保留几位小数，roundingMode指明舍入模式(ROUND_UP向上加一,ROUND_DOWN直接舍去 ROUND_HALF_UP四舍五入)
+
+### 6. Random
+
+用于产生随机数：
+
+* `boolean nextBoolean()`返回下一个伪随机数，他是取自此随机数生成器序列的均匀分布的boolean值
+* `void nextBytes(byte[] bytes)`：生成随机字节并将其置于用户提供的byte数组中
+* `double nextDouble()`返回下一个伪随机数，他是取自此随机数生成器序列的，在0.0 - 1.0 之间均匀分布的double值
+* `float nextFloat()`返回下一个伪随机数，他是取自此随机数生成器序列的，在0.0 - 1.0 之间均匀分布的float值
+* `double nextGaussian()`：返回下一个伪随机数，他是取自此随机数生成器序列的，呈高斯分布的double值，平均值是0.0，标准差是1.0
+* `int nextInt()`：返回下一个伪随机数，他是此随机数生成器序列中平均分布的int值
+* `int nextInt(int n)` ：返回下一个伪随机数，他是取自此随机数生成器序列的，在[0,n)之间均匀分布的int值
+* `long nextLong()`：返回下一个伪随机数，他是取自此随机数生成序列的均匀分布的long值
 
 
 
+# 第四章 集合框架
+
+## 4.1 数组的优缺点
+
+### 特点：
+
+数组一旦初始化，长度就是确定的
+
+数组中的多个元素是依次紧密排列的，有序的可重复的
+
+(优点)数组一旦初始化完成，其元素的类型就是确定的，不是此类型的元素，就不能添加到此数组中
+
+(优点)元素的类型既可以是基本数据类型，也可以是引用数据类型
+
+### 弊端：
+
+数组一旦初始化，长度就不可变了
+
+数组中存储数据特点的单一性，对于无序的不可重复的场景的多个数据就无能为力了
+
+数组中可用的方法、属性都极少，具体的需求需要自己组织代码逻辑
+
+针对于数组元素的插入删除操作，性能较差
+
+## 4.2 java的集合框架体系
+
+java.util.Collection:存储一个一个的数据
+
+​	|-----子接口：list：存储有序的、可重复的数据("动态"数组)
+
+​		|-----ArrayList(主要实现类) 、LinkedList、Vector
+
+​	|----- 子接口：Set：存储无序的、不可重复的数据(数学中的集合)
+
+​		|-----HashSet(主要实现类)、LinkedHashSet、TreeSet
+
+java.util.Map:存储一对一对的数据(key-value键值对，类似于数学中的映射)
+
+​		|-----HashMap(主要实现类)、LinkedMap、TreeMap、Hashtable、Properties
+
+## 4.3 Collection的常用方法
+
+| 返回值类型    | 方法名                              | 描述                                                         |
+| ------------- | ----------------------------------- | ------------------------------------------------------------ |
+| `boolean`     | `add(E e)`                          | 确保此集合包含指定的元素（可选操作）。                       |
+| `boolean`     | `addAll(Collection<? extends E> c)` | 将指定集合中的所有元素添加到此集合中（可选操作）。           |
+| `void`        | `clear()`                           | 从此集合中删除所有元素（可选操作）。                         |
+| `boolean`     | `contains(Object o)`                | 如果此集合包含指定的元素，则返回 true。                      |
+| `boolean`     | `containsAll(Collection<?> c)`      | 如果此集合包含指定集合中的所有元素，则返回 true。            |
+| `boolean`     | `equals(Object o)`                  | 将指定对象与此集合进行比较以测试相等性。                     |
+| `int`         | `hashCode()`                        | 返回此集合的哈希码值。                                       |
+| `boolean`     | `isEmpty()`                         | 如果此集合不包含任何元素，则返回 true。                      |
+| `Iterator<E>` | `iterator()`                        | 返回此集合中的元素上的迭代器。                               |
+| `boolean`     | `remove(Object o)`                  | 从此集合中删除指定元素的单个实例（如果存在）（可选操作）。   |
+| `boolean`     | `removeAll(Collection<?> c)`        | 删除此集合中也包含在指定集合中的所有元素（可选操作）。       |
+| `boolean`     | `retainAll(Collection<?> c)`        | 仅保留此集合中包含在指定集合中的元素（可选操作）。           |
+| `int`         | `size()`                            | 返回此集合中的元素数。                                       |
+| `Object[]`    | `toArray()`                         | 返回包含此集合中所有元素的数组。                             |
+| `<T> T[]`     | `toArray(T[] a)`                    | 返回一个包含此集合中所有元素的数组；返回数组的运行时类型是指定数组的类型。 |
+
+### 1. 集合和数组间的转换
+
+集合 ---> 数组
+
+调用Collection实例的toArray方法
+
+数组 ---> 集合
+
+调用Arrays的asList方法
+
+### 2. 向Collection中添加元素的要求
+
+要求元素所属的类一定要重写equals()
+
+原因是因为Collection中的相关方法(contains() / remove())会调用元素所在类的equals方法
+
+## 4.4 迭代器
+
+### 1. 迭代器(Iterator)的作用
+
+用来遍历集合中的元素
+
+### 2. 如何获取迭代器(Iterator)对象
+
+`iterator.next()`获取迭代器对象
+
+### 3. 如何实现遍历
+
+```java
+while(iterator.hasNext()){
+    System.out.println(iterator.next()); // next() 指针下移，将下移位置的元素返回
+}
+```
+
+### 4. 增强for循环(foreach)的使用
+
+#### 1. 作用
+
+用来遍历数组、集合
+
+#### 2. 格式
+
+```java
+for(要遍历的数组或集合的类型 变量名 ： 要遍历的集合或数组的变量){
+  变量.操作。。。。。。
+}
+```
+
+#### 3. 说明
+
+针对于集合来讲，增强for循环底层依然使用的是迭代器
+
+增强for循环是将集合或数组中的元素依次赋值给临时变量，循环体中对临时变量的修改可能不会导致原有的数据的修改
 
 
+
+## 4.5 List
+
+### 1. List接口中存储数据的特点：
+
+用于存储有序的可重复的数据 --> 使用List代替数组，"动态"数组
+
+### 2. List中的常用方法
+
+Collection中15个方法
+
+因为List是有序的，进而就会有索引，进而就会有针对于索引的操作的方法
+
+> 插入元素
+> 	void add(int index ,Object ele) 在index的位置插入ele
+> 	boolean addAll(int index,Collection eles) 从index的位置开始将eles中的所有元素添加进来
+>
+> 获取元素
+> 	Object get(int index) 获取index位置的元素
+> 	List subList(int fromIndex,int toIndex) 返回从fromIndex到toIndex位置的子集合
+>
+> 获取元素索引
+> 	int indexOf(Object obj) 返回obj在指定集合中首次出现的位置、
+> 	int lastIndexOf(Object obj) 返回obj在当前集合中最后一次出现的位置
+>
+> 删除和替换元素
+> 	Object remove(int index) 移除指定index位置的元素，并返回此元素
+> 	Object set(int index,Object ele) 设置置顶index位置的元素为ele
+
+小结：
+
+> 增
+> 	add(Object obj)
+> 	addAll(Collection collection)
+>
+> 删
+> 	remove(Object obj)
+> 	remove(int index)
+>
+> 改
+> 	set(int index,Object obj)
+>
+> 查
+> 	get(int index)
+>
+> 插
+> 	add(int index,Object ele)
+> 	addAll(int index,Collection collection)
+>
+> 长度
+> 	size()
+>
+> 遍历
+> 	iterator()
+> 	for()
+> 	fori()
+
+### 3. List及其实现类的特点
+
+> java.util.Collection:存储一个一个的数据
+> |-----子接口：list：存储有序的、可重复的数据("动态"数组)
+> 	|-----ArrayList：主要实现类 线程不安全的，效率较高，底层使用的Object[]数组存储，在添加和查找数据时效率较高，插入				和删除数据时效率较低
+> 	|-----LinkedList：底层使用双向链表的方式进行存储，在插入和删除数据时效率较高，添加和查找数据时效率较低。在对集				合中的数据进行频发的插入和删除时建议使用LinkedList类
+> 	|-----Vector：List的古老的实现类，线程安全的，效率较低，底层使用的Object[]数组存储
+
+
+
+## 4.6 Set
+
+> java.util.Collection:存储一个一个的数据
+> |----- 子接口：Set：存储无序的、不可重复的数据(数学中的集合)
+> 	|-----HashSet(主要实现类)：底层使用的是HashMap，即使用数组+单向链表+红黑树结构进行存储(JDK8当中)。
+> 		|-----LinkedHashSet：是HashSet的子类；在现有的数组+单向链表+红黑树的基础上，又添加了一组双向链表，用于						    记录添加元素的先后顺序，即我们可以按照添加元素的顺序实现遍历。便于频繁的查询操作。	|-----TreeSet：底层使用红黑树存储，可以按照添加的元素的指定的属性的大小顺序进行遍历。
+
+set中的常用方法即为Collection中的十五个方法，没有新增方法
+
+### 1. 开发中的使用
+
+相较于List和Map来说，Set使用的较少
+
+用来过滤重复数据。
+
+### 2. Set中的无序性、不可重复性的理解
+
+> 无序性：不等于随机性。也不是指添加和遍历的顺序不一致。<span style="color:orange">与添加元素的位置有关，不像ArrayLisy一样是依次紧密排列的。这里是根据添加的元素的哈希值计算的其在数组中的存储位置，此位置不是依次排列的，表现为无序性</span>
+
+> 不可重复性：添加到Set中的元素不能相同，<span style="color:orange">比较的标准需要判断hashCode()得到的哈希值与equals()得到的boolean结果</span>，hash值相同且equals方法返回true，则认为元素是相同的
+
+### 3. 添加到HashSet/LinkedHashSet中元素的要求
+
+要求元素所在的类要重写equals和hashCode两个方法，同时要求equals和hashCode要保持一致性，我们只需要自动生成两个方法的重写即可，即能保证两个方法的重复性
+
+### 4. TreeSet的使用
+
+1. 底层数据结构是红黑树
+
+2. 添加数据后的特点，可以按照添加元素的指定的属性的大小顺序进行遍历
+
+3. 向TreeSet中添加元素的要求
+
+   > 要求添加到TreeSet中的元素必须是同一类型的元素，否则会报错(ClassCastException)
+   >
+   > 添加的元素需要考虑排序：定制排序和自然排序
+
+4. 判断数据是否相同的标准
+
+   > 不再考虑equals和hashCode方法，也就意味添加到treeSet中的元素，所在的类不需要重写这两个方法
+   >
+   > 比较元素大小的或比较元素是否相等的标准就是考虑自然排序或定制排序中compareTo或compare的返回值，如果这两个方法的返回值为0，则认为两个对象是相等的，由于treeSet中不能存放相同的元素，则后续的对象不再存储在TreeSet中
+
+## 4.7 Map
+
+java.util.Map:存储一对一对的数据(key-value键值对，类似于数学中的映射)
+	|-----HashMap：主要实现类，线程不安全的，执行效率高，可以添加null的key或value值，底层使用数组+单向链表+红黑树结构存				   储(JDK8)
+		|-----LinkedMap：是HashMap的子类，在HashMap使用的基础上，增加了一对双向链表，用于记录添加元素的相关顺序，进而					     在遍历元素时，就可以按照添加顺序显示。<span style="color:orange">开发中对于频繁的遍历操作建议使用此类</span>
+	|-----TreeMap：使用红黑树存储，可以按照添加的key-value中的key元素的指定的属性的大小顺序进行遍历，需要考虑自然排序和定				 制排序
+		|-----Propertie：其key和value都是String类型，常用来处理属性文件。
+	|-----Hashtable：古老实现类，线程安全的，执行效率低，不可以添加null的key或value值，底层使用数组+单向链表结构存储(JDK8)
+
+### 1. HashMap中的元素的特点
+
+> HashMap中的所有的key之间是不可重复的，无序的，所以所有的key就构成一个Set集合 -- > key所在的类要重写hashCode和equals方法
+>
+> HashMap中所有的value彼此之间是可重复的无序的，所有的value之间就构成一个Collection集合 ---> value所在的类要重写equals方法
+>
+> HashMap中所有的key-value就构成了一个entry。所有的entry之间是不可重复的、无序的，所有的entry就构成了一个Set集合
+
+### 2. Map中的常用方法
+
+> 添加修改操作
+> 	Object put(Object key ,Object value) 将指定key-value添加或修改到当前Map对象中
+> 	void putAll(Map m) 将m中所有的key-value存放到当前map中
+>
+> 删除操作
+> 	Object remove(Object key)：移除指定key的key-value值，并返回value
+> 	void clear()：清空当前map中的所有数据
+>
+> 元素查询操作
+> 	Object get(Object key)：获取指定key对应的value
+> 	boolean containsKey(Object key)：是否包含指定的key
+> 	boolean containsValue(Object value)：是否包含指定的value
+> 	int size()：返回map中key-value的对数
+> 	boolean isEmpty()：判断当前map是否为空
+> 	boolean equals(Object obj)：判断当前map和参数对象obj是否相等
+>
+> 元视图操作方法
+> 	Set keySet()：返回所有的key构成的Set集合
+> 	Collection values()：返回所有value构成的Collection集合
+> 	Set entrySet()：返回所有key-value对构成的Set集合
+
+> <span style="color:orange">小结</span>：
+>
+> <span style="color:orange">增</span>：
+>
+> ​	put(Object key ,Object value)
+>
+> <span style="color:orange">删</span>：
+>
+> ​	remove(Object key)
+>
+> <span style="color:orange">改</span>：
+>
+> ​	put(Object key ,Object value) 
+>
+> <span style="color:orange">查</span>：
+>
+> ​	get(Object key)
+>
+> <span style="color:orange">长度</span>：
+>
+> ​	size()
+>
+> <span style="color:orange">遍历</span>：
+>
+> ​	keySet()
+>
+> ​	values()
+>
+> ​	entrySet()
+
+### 3.
+
+>  
 
 ```html
 <span style="color:orange"></span>
-<span style="color:red"></span>
+<span style="color:red">小结</span>
 <span style="color:green"></span>
 ```
 
