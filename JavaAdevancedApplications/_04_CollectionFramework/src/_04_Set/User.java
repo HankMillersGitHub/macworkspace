@@ -6,6 +6,22 @@ public class User implements Comparable {
     String name;
     int age;
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -52,7 +68,7 @@ public class User implements Comparable {
         // 按照name排序
 /*        if(o instanceof User){
             User u = (User) o;
-            return String.CASE_INSENSITIVE_ORDER.compare(u.name,this.name);
+            return u.age - this.age;
         }
         throw new RuntimeException("类型不匹配");*/
     }
