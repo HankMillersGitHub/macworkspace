@@ -118,8 +118,7 @@ public class CollectionsTest {
             多个unmodifiableXxx()方法，该方法返回指定的Xxx的不可修改的视图
             添加
             boolean addAll(Collection c,T...elements)将所有的指定元素添加到c中
-        * */
-        /*ArrayList arrayList1 = new ArrayList();
+        * *//*ArrayList arrayList1 = new ArrayList();
         arrayList1.add(new User("Hank1",22));
         arrayList1.add(new User("Hank2",33));
         arrayList1.add(new User("Hank3",44));
@@ -136,6 +135,7 @@ public class CollectionsTest {
         while (iterator.hasNext()){
             System.out.println("copy之后的list" + iterator.next());
         }*/
+
         /*        ArrayList arrayList3 = new ArrayList();
         arrayList3.add(new User("Jerry",19));
         arrayList3.add(new User("Jerry",19));
