@@ -1,0 +1,2 @@
+this is demo2 file，this is a utf8 file
+这是demo2文件，是utf8格式的

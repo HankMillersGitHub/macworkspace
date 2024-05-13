@@ -1,0 +1,2 @@
+this is demo1 file this is a GBK file 
+这是demo1文件，是GBK格式的
