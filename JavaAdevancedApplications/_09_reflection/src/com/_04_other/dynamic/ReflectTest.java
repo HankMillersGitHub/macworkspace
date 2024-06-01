@@ -51,6 +51,5 @@ public class ReflectTest {
     public void test2() throws Exception {
         String className = "com._04_other.dynamic.Person";
         invoke(className, "sayhello");
-        invoke(className,"showNation");
     }
 }

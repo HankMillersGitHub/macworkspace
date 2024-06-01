@@ -1,0 +1,9 @@
+案例：榨汁机榨水果汁，水果分别有苹果香蕉和橘子等
+提示：
+1. 声明水果接口，包含榨汁抽象方法：void squeeze()
+2. 声明榨汁机(Juicer)，包含运行方法：public void run(Fruit f)，方法中，调用f的榨汁方法squeeze
+3. 声明各种水果类，实现水果接口，并重写squeeze
+4. 在src下，建立配置文件：config.properties，并在配置文件中配置fruitName=xxx
+5. 在FruitTest测试类中：
+    1. 读取配置文件，获取水果类名，并用反射创建水果对象
+    2. 创建榨汁机对象，并调用run方法

@@ -43,7 +43,7 @@ public class ClassLoaderTest {
     public void test3() throws IOException {
         Properties pros = new Properties();
         // 通过类加载器获取的文件的路径在当前module下的src下
-        InputStream is = ClassLoader.getSystemClassLoader().getResourceAsStream("info.properties");
+        InputStream is = ClassLoader.getSystemClassLoader().getResourceAsStream("config.properties");
         pros.load(is);
         String name = pros.getProperty("name");
         String password = pros.getProperty("password");
@@ -54,7 +54,7 @@ public class ClassLoaderTest {
         // 通过properties获取配置文件
         Properties pros = new Properties();
         // 文件的路径在当前module下
-        FileInputStream fis = new FileInputStream(new File("info.properties"));
+        FileInputStream fis = new FileInputStream(new File("config.properties"));
         pros.load(fis);
         String name = pros.getProperty("name");
         String password = pros.getProperty("password");
